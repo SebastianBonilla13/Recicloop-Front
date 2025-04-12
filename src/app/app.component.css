@@ -1,0 +1,5 @@
+  /* Asegurar que el contenido no se esconda debajo del navbar */
+  .main {
+    padding-top: 80px;
+    /* Debe coincidir con la altura del navbar */
+  }

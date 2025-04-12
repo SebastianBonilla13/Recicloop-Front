@@ -1,0 +1,93 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: #2c3e50;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 1000000;
+
+  position: sticky;
+  /* Debe estar justo debajo del navbar */
+  top: 80px;
+  
+  /* Evita que desaparezca al hacer scroll */
+  /* overflow-y: auto; */
+  /* Permite desplazamiento si hay demasiado contenido */
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar.collapsed .hide-on-collapse {
+  display: none;
+}
+
+.toggle-btn {
+  position: absolute;
+  right: -15px;
+  top: 20px;
+  background: rgb(216, 62, 62);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.logo-text {
+  color: white;
+}
+
+.sidebar-link {
+  color: #ecf0f1;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-link.active {
+  color: white;
+  background: rgba(179, 237, 5, 0.2);
+}
+
+/* .profile-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+} */
+
+.option {
+  margin-left: 8px;
+}
+
+.sidebar-link:hover {
+  background: rgba(56, 147, 35, 0.1);
+}
+
+.main-content {
+  /* flex-grow: 1; */
+  margin-left: 280px;
+  padding: 20px;
+  transition: all 0.3s ease;
+
+  background: #d6f7d3;
+  
+  padding-top: 35px;
+  z-index: 1;
+
+  
+}
+
+.sidebar.collapsed+.main-content {
+  margin-left: 80px;
+}
+
+.hola {
+  position: sticky;
+}
