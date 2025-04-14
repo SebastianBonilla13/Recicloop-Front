@@ -1,0 +1,53 @@
+<main class="main ">
+    <div class="container ">
+        <section id="reciclar" class="pt-">
+            
+
+            <div class="container mt-5 pt-">
+                <mat-card class="recycling-card">
+                  <mat-card-header>
+                    <mat-card-title>Simulación de Reciclaje</mat-card-title>
+                    <mat-card-subtitle>Ingrese los datos para registrar puntos</mat-card-subtitle>
+                  </mat-card-header>
+          
+                  <mat-card-content>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>ID Usuario</mat-label>
+                          <input matInput type="number" [(ngModel)]="userId" placeholder="Ingrese ID de usuario">
+                          <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+                      </div>
+                      
+                      <div class="col-md-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>ID Punto Físico</mat-label>
+                          <input matInput type="number" [(ngModel)]="locationId" placeholder="Ingrese ID del punto físico">
+                          <mat-icon matSuffix>location_on</mat-icon>
+                        </mat-form-field>
+                      </div>
+                    </div>
+          
+                    <div class="points-section text-center my-4">
+                      <h2 class="points-counter">{{ points }} puntos</h2>
+                      <button mat-raised-button color="primary" (click)="addPoints()">
+                        <mat-icon>add</mat-icon>
+                        Agregar Puntos
+                      </button>
+                    </div>
+                  </mat-card-content>
+          
+                  <mat-card-actions align="end">
+                    <button mat-raised-button color="warn" (click)="finishProcess()" [disabled]="!isValid()">
+                      <mat-icon>check_circle</mat-icon>
+                      Terminar Proceso
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            
+            
+        </section>
+
+    </div>

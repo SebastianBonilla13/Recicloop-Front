@@ -5,6 +5,7 @@ interface NavItem {
   link: string;
   isActive?: boolean;
   isDisabled?: boolean;
+  isSpecial?: boolean;
 }
 
 @Component({
@@ -19,11 +20,13 @@ export class NavbarComponent {
 
   navItems: NavItem[] = [
     { text: 'Inicio', link: '/inicio', isActive: true },
-    { text: 'Tienda', link: '#' },
-    { text: 'Mapa', link: '#' },
-    { text: 'Noticias', link: '#' },
-    { text: 'Mi Perfil', link: '/miPerfil' }
+    { text: 'Tienda', link: '/tienda' },
+    { text: 'Mapa', link: '/mapa' },
+    { text: 'Noticias', link: '/noticias' },
+    { text: 'Mi Perfil', link: '/miPerfil' },
+    { text: 'Reciclar', link: '/reciclar', isSpecial: true },
   ];
+
 
   constructor() {}
 }

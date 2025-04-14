@@ -10,14 +10,26 @@
       <div class="collapse navbar-collapse h-100 " id="navbarMain">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 h-100 ">
           @for (item of navItems; track item.text) {
-            <li class="nav-item  ">
-              <a class="nav-link option px-4 " [class.active]="item.isActive" href="{{ item.link }}">{{ item.text }}</a>
+          <li class="nav-item  ">
+            <a class="nav-link option px-4 " 
+            [class.active]="item.isActive"
+            [class.special-link]="item.isSpecial"
+            href="{{ item.link }}">{{ item.text }}</a>
+          </li>
+          }
+
+          <!-- <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-bg-success" href="/reciclar">
+                <i class="bi bi-box-arrow-right"></i> ¡Reciclar!
+              </a>
             </li>
-            }
+          </ul> -->
+
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-danger" href="#">
+            <a class="nav-link text-danger" href="/salir">
               <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
             </a>
           </li>
