@@ -28,11 +28,11 @@ export class SidebarComponent {
 
   sidebarLinks: SidebarLink[] = [
     { text: 'Información Básica', link: '/miPerfil#info-basica', icon: 'fa-user', isActive: false },
+    { text: 'Historial de Reciclaje', link: '/miPerfil#historial', icon: 'fa-shopping-cart', isActive: false },
     { text: 'Progreso', link: '/miPerfil#progreso', icon: 'fa fa-chart-line', isActive: false },
     { text: 'Logros', link: '/miPerfil#logros', icon: 'fa fa-medal', isActive: false },
     { text: 'Desafíos', link: '/miPerfil#desafios', icon: 'fa fa-tasks', isActive: false },
     { text: 'Amigos', link: '/miPerfil#amigos', icon: 'fa-users', isActive: false },
-    { text: 'Historial de Canjes', link: '/miPerfil#historial', icon: 'fa-shopping-cart', isActive: false }
   ];
 
   /* profile = {
