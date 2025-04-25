@@ -1,0 +1,29 @@
+<!-- Filtro  -->
+<!-- <app-filtro [filtroInput]="filtroInput" (filtrarEmitter)="filtrar($event)"></app-filtro>
+ -->
+<!-- Tabla Paginada  -->
+<!-- <app-datatable-custom
+  [datatableInputs]="datatableInputs"
+  
+></app-datatable-custom>
+ -->
+<!-- (accionEmitter)="accion($event)" -->
+
+<!-- Botón para cargar datos mockeados -->
+<div class="row mb-3">
+    <div class="col">
+      <button 
+        mat-raised-button 
+        color="primary"
+        (click)="solicitarDatos()"
+      >
+        Cargar Datos de Prueba
+      </button>
+    </div>
+  </div>
+  
+  <!-- Tabla Paginada existente -->
+  <app-datatable-custom
+    [datatableInputs]="datatableInputs"
+  ></app-datatable-custom>
+  <!-- (accionEmitter)="accion($event)" -->

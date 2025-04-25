@@ -1,7 +1,14 @@
 <main class="main padding-top-3">
     <div class="container ">
         <section id="info-basica" class="pt-4">
-            <h2>Noticias</h2>
+
+            <app-listar-convocatorias
+                [obtenerRegistroId]="true"
+                >
+            </app-listar-convocatorias>
+            <!-- (filtrarEmitter)="accion($event)" -->
+
+            <!-- <h2>Noticias</h2>
             <p>Informacion pagina web</p>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -30,7 +37,7 @@
                 vitae tortor nec, feugiat luctus felis. Vivamus quis suscipit elit,
                 dignissim mattis ligula. Mauris vulputate turpis fringilla libero
                 aliquam, vitae finibus dui egestas.
-            </p>
+            </p> -->
         </section>
 
     </div>
