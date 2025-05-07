@@ -1,0 +1,56 @@
+<div class="container p-4">
+    <mat-card class="profile-card">
+      <!-- <mat-card-header>
+        <div mat-card-avatar class="profile-avatar">
+          <mat-icon class="avatar-icon">account_circle</mat-icon>
+        </div>
+        <mat-card-title>Mi Perfil</mat-card-title>
+        <mat-card-subtitle>Información Básica</mat-card-subtitle>
+      </mat-card-header> -->
+
+      <mat-card-content class="">
+        <div class="info-grid">
+          
+            <div class="info-item">
+            <mat-icon class="info-icon">person</mat-icon>
+            <div class="info-content">
+              <h3 class="info-label">Nombre</h3>
+              <p class="info-value">{{ userProfile.name }}</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon class="info-icon">location_on</mat-icon>
+            <div class="info-content">
+              <h3 class="info-label">Ubicación</h3>
+              <p class="info-value">{{ userProfile.location }}</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon class="info-icon">school</mat-icon>
+            <div class="info-content">
+              <h3 class="info-label">Institución</h3>
+              <p class="info-value">{{ userProfile.institution }}</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon class="info-icon">calendar_today</mat-icon>
+            <div class="info-content">
+              <h3 class="info-label">Fecha de Registro</h3>
+              <p class="info-value">{{ userProfile.registrationDate | date:'longDate' }}</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon class="info-icon">email</mat-icon>
+            <div class="info-content">
+              <h3 class="info-label">Correo Electrónico</h3>
+              <p class="info-value">{{ userProfile.email }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

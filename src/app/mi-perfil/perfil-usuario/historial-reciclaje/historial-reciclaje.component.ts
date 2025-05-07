@@ -9,15 +9,32 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormField } from '@angular/material/input';
+import { MatInput } from '@angular/material/input';
+import { MatTableDataSource } from '@angular/material/table';
 
-interface RecyclingEvent {
+interface Recoleccion {
   usuarioId: number;
   puntoReciclajeId: number;
-  fechaRegistro: string;
-  puntosObtenidos: number;
+  fechaInicio: string;
+  fechaFin: string;
+  puntosTotales: number;
   numeroBotellas: number;
-  pesoTotal: number;
+  puntoReciclaje: PuntoReciclaje;
 }
+
+/* export class TableBasicExample {
+  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  dataSource = ELEMENT_DATA;
+} */
+
+interface PuntoReciclaje {
+  nombre: string;
+  ubicacion: string;
+}
+
 
 @Component({
   selector: 'app-historial-reciclaje',
@@ -29,35 +46,60 @@ interface RecyclingEvent {
     MatDividerModule,
     MatProgressSpinnerModule,
     MatBadgeModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTableModule,
+    MatCardModule,
+    MatFormField,
+
   ],
   templateUrl: './historial-reciclaje.component.html',
   styleUrl: './historial-reciclaje.component.css'
 })
+
+
 export class HistorialReciclajeComponent {
-  recyclingEvents: RecyclingEvent[] = [];
+
+  detalleRecoleccion: Recoleccion[] = [];
   loading = true;
   error: string | null = null;
+  event: string | null = null;
 
-  constructor(private http: HttpClient) {}
+
+  displayedColumns = ['fechaInicio', 'ubicacion', 'numeroBotellas', 'puntosTotales'];
+  dataSource!: MatTableDataSource<Recoleccion>;
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); 
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
+
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.fetchRecyclingHistory();
   }
 
   private fetchRecyclingHistory() {
-    const userId = 2; // This could be dynamic based on the logged-in user
-    const url = `http://localhost:3000/api/v1/usuarios/historial-puntos-visitados/${userId}`;
+    const userId = 23635;
 
-    this.http.get<RecyclingEvent[]>(url)
+    /* const url = `http://localhost:3000/api/v1/usuarios/historial-puntos-visitados/${userId}`; */
+    const url = `http://localhost:3000/api/v1/usuarios/${userId}/historial-recolecciones`;
+
+
+    this.http.get<Recoleccion[]>(url)
       .subscribe({
         next: (data) => {
           // Add default values for bottles and weight
-          this.recyclingEvents = data.map(event => ({
+          this.detalleRecoleccion = data.map(event => ({
             ...event,
-            numeroBotellas: 10,
-            pesoTotal: 2
+            puntoReciclaje: {
+              nombre: event.puntoReciclaje.nombre,
+              ubicacion: event.puntoReciclaje.ubicacion
+            }
           }));
+          this.dataSource = new MatTableDataSource(this.detalleRecoleccion); // Asignar los datos a MatTableDataSource
           this.loading = false;
         },
         error: (error) => {
