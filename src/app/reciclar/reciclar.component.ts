@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { WsRecoleccionComponent } from "./ws-recoleccion/ws-recoleccion.component";
+
 
 @Component({
   selector: 'app-reciclar',
@@ -17,7 +19,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
-  ],
+    WsRecoleccionComponent
+],
   templateUrl: './reciclar.component.html',
   styleUrl: './reciclar.component.css'
 })
@@ -26,14 +29,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 export class ReciclarComponent {
 
-
-
-
-  userId: number | null = null;
-  locationId: number | null = null;
-  points: number = 0;
-
-  constructor(private snackBar: MatSnackBar) {
+  constructor(
+    private snackBar: MatSnackBar,
+  ) {
     // Prueba el SnackBar al iniciar el componente
     /* setTimeout(() => {
       this.snackBar.open('Componente iniciado', 'OK', {
@@ -41,6 +39,13 @@ export class ReciclarComponent {
       });
     }, 1000); */
   }
+
+
+  userId: number | null = null;
+  locationId: number | null = null;
+  points: number = 0;
+
+
 
   addPoints() {
     this.points += 1;
@@ -64,18 +69,13 @@ export class ReciclarComponent {
       if (response.ok) {
 
         setTimeout(() => {
-          /* this.snackBar.open('Proceso completado con éxito', 'Cerrar', {
-            duration: 3000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top'
-          }); */
- 
+
           this.snackBar.open('Asociacion creada con exito', 'Cerrar', {
             duration: 3000
           });
-  
+
         }, 1000);
-        
+
         this.resetForm();
         console.log("Asociacion creada con exito");
       } else {
@@ -94,4 +94,6 @@ export class ReciclarComponent {
     this.locationId = null;
     this.points = 0;
   }
+
+
 }
